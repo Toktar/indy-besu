@@ -789,8 +789,13 @@ mod revocation_registry_entry {
         super::helpers::sign_and_submit_transaction(&client, transaction, &signer).await;
 
         // write
-        let revocation_registry_entry1 =
-            revocation_registry_entry(&did, &revocation_registry_definition.id(), None, Some("currentAccum"), None);
+        let revocation_registry_entry1 = revocation_registry_entry(
+            &did,
+            &revocation_registry_definition.id(),
+            None,
+            Some("currentAccum"),
+            None,
+        );
         let transaction = revocation_registry::build_create_revocation_registry_entry_transaction(
             &client,
             &TRUSTEE_ACCOUNT,
